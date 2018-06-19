@@ -2,9 +2,15 @@
 
 namespace App\Providers;
 
+use App\Dataset;
 use App\Device;
+use App\DeviceLog;
+use App\DeviceParameter;
 use Carbon\Carbon;
+use App\Observers\DatasetObserver;
 use App\Observers\DeviceObserver;
+use App\Observers\DeviceLogObserver;
+use App\Observers\DeviceParameterObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -26,6 +32,9 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Device::observe(DeviceObserver::class);
+        DeviceParameter::observe(DeviceParameterObserver::class);
+        DeviceLog::observe(DeviceLogObserver::class);
+        Dataset::observe(DatasetObserver::class);
     }
 
     /**

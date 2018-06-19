@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('devices', 'DeviceController');
 Route::resource('device_parameters', 'DeviceParameterController');
 Route::resource('devices.device_logs', 'Device\DeviceLogController');
+Route::resource('datasets', 'DatasetController');
