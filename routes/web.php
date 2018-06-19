@@ -22,3 +22,4 @@ Route::resource('devices', 'DeviceController');
 Route::resource('device_parameters', 'DeviceParameterController');
 Route::resource('devices.device_logs', 'Device\DeviceLogController');
 Route::resource('datasets', 'DatasetController');
+Route::resource('parameters', 'ParameterController');

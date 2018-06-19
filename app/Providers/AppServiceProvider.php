@@ -6,11 +6,13 @@ use App\Dataset;
 use App\Device;
 use App\DeviceLog;
 use App\DeviceParameter;
+use App\Parameter;
 use Carbon\Carbon;
 use App\Observers\DatasetObserver;
 use App\Observers\DeviceObserver;
 use App\Observers\DeviceLogObserver;
 use App\Observers\DeviceParameterObserver;
+use App\Observers\ParameterObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -35,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         DeviceParameter::observe(DeviceParameterObserver::class);
         DeviceLog::observe(DeviceLogObserver::class);
         Dataset::observe(DatasetObserver::class);
+        Parameter::observe(ParameterObserver::class);
     }
 
     /**

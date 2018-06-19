@@ -18,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\DeviceParameter' => 'App\Policies\DeviceParameterPolicy',
         'App\DeviceLog' => 'App\Policies\DeviceLogPolicy',
         'App\Dataset' => 'App\Policies\DatasetPolicy',
+        'App\Parameter' => 'App\Policies\ParameterPolicy',
     ];
 
     /**
