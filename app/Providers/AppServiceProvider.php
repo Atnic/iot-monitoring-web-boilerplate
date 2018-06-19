@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Datum;
 use App\Dataset;
 use App\Device;
 use App\DeviceLog;
 use App\DeviceParameter;
 use App\Parameter;
 use Carbon\Carbon;
+use App\Observers\DatumObserver;
 use App\Observers\DatasetObserver;
 use App\Observers\DeviceObserver;
 use App\Observers\DeviceLogObserver;
@@ -38,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
         DeviceLog::observe(DeviceLogObserver::class);
         Dataset::observe(DatasetObserver::class);
         Parameter::observe(ParameterObserver::class);
+        Datum::observe(DatumObserver::class);
     }
 
     /**

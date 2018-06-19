@@ -22,7 +22,7 @@ class DatasetController extends Controller
             'dataset' => [
                 'belongsToMany' => [], // also for morphToMany
                 'hasMany' => [
-                    // [ 'name' => 'childs', 'label' => title_case(__('datasets.childs')) ], // Example
+                    [ 'name' => 'data', 'label' => title_case(__('datasets.data')) ], // Example
                 ], // also for morphMany, hasManyThrough
             ]
         ];

@@ -39,18 +39,18 @@ class ParameterController extends Controller
         return [
             'index' => [
                 'parameter' => [
-                    // [ 'name' => 'parent', 'label' => title_case(__('device_parameters.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
-                    [ 'name' => 'code', 'label' => title_case(__('device_parameters.code')) ],
-                    [ 'name' => 'nama', 'label' => title_case(__('device_parameters.nama')) ],
-                    [ 'name' => 'unit', 'label' => title_case(__('device_parameters.unit')) ],
+                    // [ 'name' => 'parent', 'label' => title_case(__('parameters.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
+                    [ 'name' => 'code', 'label' => title_case(__('parameters.code')) ],
+                    [ 'name' => 'nama', 'label' => title_case(__('parameters.nama')) ],
+                    [ 'name' => 'unit', 'label' => title_case(__('parameters.unit')) ],
                 ]
             ],
             'show' => [
                 'parameter' => [
-                    // [ 'name' => 'parent', 'label' => title_case(__('device_parameters.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
-                    [ 'name' => 'code', 'label' => title_case(__('device_parameters.code')) ],
-                    [ 'name' => 'nama', 'label' => title_case(__('device_parameters.nama')) ],
-                    [ 'name' => 'unit', 'label' => title_case(__('device_parameters.unit')) ],
+                    // [ 'name' => 'parent', 'label' => title_case(__('parameters.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
+                    [ 'name' => 'code', 'label' => title_case(__('parameters.code')) ],
+                    [ 'name' => 'nama', 'label' => title_case(__('parameters.nama')) ],
+                    [ 'name' => 'unit', 'label' => title_case(__('parameters.unit')) ],
                 ]
             ]
         ];
@@ -70,9 +70,9 @@ class ParameterController extends Controller
                     // [ 'field' => 'select', 'name' => 'parent_id', 'label' => title_case(__('bars.parent')), 'required' => true, 'options' => \App\Parent::filter()->get()->map(function ($parent) {
                     //     return [ 'value' => $parent->id, 'text' => $parent->name ];
                     // })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'code', 'label' => title_case(__('device_parameters.code')), 'required' => true ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('device_parameters.name')) ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'unit', 'label' => title_case(__('device_parameters.unit')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'code', 'label' => title_case(__('parameters.code')), 'required' => true ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('parameters.name')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'unit', 'label' => title_case(__('parameters.unit')) ],
                 ]
             ],
             'edit' => [
@@ -80,9 +80,9 @@ class ParameterController extends Controller
                     // [ 'field' => 'select', 'name' => 'parent_id', 'label' => title_case(__('bars.parent')), 'options' => \App\Parent::filter()->get()->map(function ($parent) {
                     //     return [ 'value' => $parent->id, 'text' => $parent->name ];
                     // })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'code', 'label' => title_case(__('device_parameters.code')) ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('device_parameters.name')) ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'unit', 'label' => title_case(__('device_parameters.unit')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'code', 'label' => title_case(__('parameters.code')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('parameters.name')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'unit', 'label' => title_case(__('parameters.unit')) ],
                 ]
             ]
         ];

@@ -9,5 +9,5 @@ return [
     'name' => 'nama',
 
     // 'parent' => 'parent',
-    // 'childs' => 'childs'
+    'device_logs' => 'log alat'
 ];

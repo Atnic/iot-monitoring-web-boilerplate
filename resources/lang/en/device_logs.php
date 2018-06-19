@@ -5,7 +5,6 @@ return [
     'plural' => 'log alat',
     'singular' => 'log alat',
 
-    'id' => 'ID',
     // 'device_imei' => '',
     // 'device_parameter_id' => '',
     'value' => 'value',

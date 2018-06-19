@@ -6,14 +6,14 @@ use Arados\Filters\Traits\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Dataset Model
+ * Datum Model
  */
-class Dataset extends Model
+class Datum extends Model
 {
     use Filterable;
 
     /** @var string Filter Class */
-    protected $filters = 'App\Filters\DatasetFilter';
+    protected $filters = 'App\Filters\DatumFilter';
 
     /** @var string $table */
     // protected $table = '';
@@ -42,11 +42,20 @@ class Dataset extends Model
     // protected $connection = '';
 
     /**
-     * Get data this model has
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get dataset this model belongs to
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function data()
+    public function dataset()
     {
-        return $this->hasMany(Datum::class);
+        return $this->belongsTo(Dataset::class);
+    }
+
+    /**
+     * Get parameter this model belongs to
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parameter()
+    {
+        return $this->belongsTo(Parameter::class);
     }
 }

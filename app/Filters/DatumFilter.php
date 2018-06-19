@@ -5,17 +5,17 @@ namespace App\Filters;
 use Atnic\LaravelGenerator\Filters\BaseFilter;
 
 /**
- * DeviceLogFilter Filter
+ * DatumFilter Filter
  */
-class DeviceLogFilter extends BaseFilter
+class DatumFilter extends BaseFilter
 {
     /**
      * Searchable Field
      * @var array
      */
     protected $searchables = [
-        'device' => [ 'imei', 'name' ],
-        'device_parameter' => [ 'name' ],
+        'dataset' => [ 'name' ],
+        'parameter' => [ 'name' ],
         'value',
         'logged_at',
     ];
@@ -26,8 +26,8 @@ class DeviceLogFilter extends BaseFilter
      */
     protected $sortables = [
         'id',
-        'device.imei',
-        'device_parameter.name',
+        'dataset.name',
+        'parameter.name',
         'value',
         'logged_at',
         'created_at',

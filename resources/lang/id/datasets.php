@@ -9,5 +9,5 @@ return [
     'remark' => 'catatan',
 
     // 'parent' => 'parent',
-    // 'childs' => 'childs'
+    'data' => 'data'
 ];
