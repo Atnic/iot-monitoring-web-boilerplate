@@ -41,5 +41,12 @@ class DeviceParameter extends Model
     /** @var string $connection */
     // protected $connection = '';
 
-    // TODO: Define other default value and relations
+    /**
+     * Get device_logs this model has
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function device_logs()
+    {
+        return $this->hasMany(DeviceLog::class);
+    }
 }

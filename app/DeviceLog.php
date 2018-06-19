@@ -6,26 +6,26 @@ use Arados\Filters\Traits\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Device Model
+ * DeviceLog Model
  */
-class Device extends Model
+class DeviceLog extends Model
 {
     use Filterable;
 
     /** @var string Filter Class */
-    protected $filters = 'App\Filters\DeviceFilter';
+    protected $filters = 'App\Filters\DeviceLogFilter';
 
     /** @var string $table */
     // protected $table = '';
 
     /** @var string $primaryKey */
-    protected $primaryKey = 'imei';
+    // protected $primaryKey = '';
 
     /** @var bool $incrementing */
-    public $incrementing = false;
+    // public $incrementing = false;
 
     /** @var string $keyType */
-    protected $keyType = 'string';
+    // protected $keyType = 'string';
 
     /** @var bool $timestamps */
     // public $timestamps = false;
@@ -42,11 +42,20 @@ class Device extends Model
     // protected $connection = '';
 
     /**
-     * Get device_logs this model has
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get device this device_log belongs to
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function device_logs()
+    public function device()
     {
-        return $this->hasMany(DeviceLog::class);
+        return $this->belongsTo(Device::class);
+    }
+
+    /**
+     * Get device_parameter this device_log belongs to
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function device_parameter()
+    {
+        return $this->belongsTo(DeviceParameter::class);
     }
 }
