@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register Device routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "device" middleware group. Enjoy building your Device!
+| is assigned the "api_device" middleware group. Enjoy building your Device!
 |
 */
 
-Route::middleware('auth:device')->get('/device', function (Request $request) {
+Route::middleware('auth:api_device')->get('/device', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('device_logs', 'ApiDevice\DeviceLogController', [ 'as' => 'api.device' ]);
