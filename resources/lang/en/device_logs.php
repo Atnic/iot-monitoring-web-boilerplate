@@ -11,6 +11,6 @@ return [
     'logged_at' => 'logged at',
 
     'device_imei' => 'device',
-    'device_parameter_id' => 'device parameter',
+    'device_parameter' => 'device parameter',
     // 'childs' => 'childs'
 ];

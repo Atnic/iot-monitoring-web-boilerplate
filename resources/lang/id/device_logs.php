@@ -12,6 +12,6 @@ return [
     'logged_at' => 'waktu log',
 
     'device_imei' => 'alat',
-    'device_parameter_id' => 'parameter alat',
+    'device_parameter' => 'parameter alat',
     // 'childs' => 'childs'
 ];

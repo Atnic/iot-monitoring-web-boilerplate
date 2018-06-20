@@ -1,0 +1,31 @@
+{
+  "Create": "Buat baru",
+  "Add": "Tambahkan",
+  "Store": "Simpan",
+  "Show": "Tampilkan",
+  "Edit": "Ubah",
+  "Update": "Perbaharui",
+  "Delete": "Hapus",
+  "Save": "Simpan",
+
+  "Action": "Aksi",
+  "Search": "Cari",
+  "Back": "Kembali",
+  "Next": "Selanjutnya",
+  "Loading": "Memuat",
+  "Empty": "Tidak ada",
+  "All": "Semua",
+  "Finish": "Selesai",
+
+  "More": "Lebih banyak",
+  "Hide": "Sembunyikan",
+
+  "Are you sure you want to delete?": "Anda yakin ingin menghapusnya?",
+  "All data will be lost. Are you sure?": "Semua data akan hilang. Apakah anda yakin?",
+  "Yes": "Ya",
+  "No": "Tidak",
+
+  "Success": "Berhasil",
+  "Failed": "Gagal",
+  "Error": "Error"
+}

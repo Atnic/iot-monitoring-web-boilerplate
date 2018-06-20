@@ -22,7 +22,7 @@ class DeviceController extends Controller
             'device' => [
                 'belongsToMany' => [], // also for morphToMany
                 'hasMany' => [
-                    // [ 'name' => 'childs', 'label' => title_case(__('devices.childs')) ], // Example
+                    [ 'name' => 'device_logs', 'label' => title_case(__('devices.device_logs')) ], // Example
                 ], // also for morphMany, hasManyThrough
             ]
         ];

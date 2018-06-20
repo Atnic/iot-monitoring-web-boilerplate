@@ -25,7 +25,7 @@ class DatumObserver
      */
     public function creating(Datum $datum)
     {
-        //
+        $datum->logged_at = $datum->logged_at ? : now(config('app.timezone'))->toAtomString();
     }
 
     /**

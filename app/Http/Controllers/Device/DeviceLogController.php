@@ -74,7 +74,7 @@ class DeviceLogController extends Controller
         return [
             'create' => [
                 'device_log' => [
-                    'device_parameter' => [ 'field' => 'input', 'type' => 'text', 'name' => 'device_parameter_id', 'label' => title_case(__('device_logs.device_parameter')), 'required' => true, 'options' => DeviceParameter::all()->map(function ($device_parameter) {
+                    'device_parameter' => [ 'field' => 'select', 'name' => 'device_parameter_id', 'label' => title_case(__('device_logs.device_parameter')), 'required' => true, 'options' => DeviceParameter::all()->map(function ($device_parameter) {
                         return [ 'value' => $device_parameter->id, 'text' => $device_parameter->name ];
                     })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'value', 'label' => title_case(__('device_logs.value')), 'required' => true ],
@@ -83,7 +83,7 @@ class DeviceLogController extends Controller
             ],
             'edit' => [
                 'device_log' => [
-                    'device_parameter' => [ 'field' => 'input', 'type' => 'text', 'name' => 'device_parameter_id', 'label' => title_case(__('device_logs.device_parameter')), 'options' => DeviceParameter::all()->map(function ($device_parameter) {
+                    'device_parameter' => [ 'field' => 'select', 'name' => 'device_parameter_id', 'label' => title_case(__('device_logs.device_parameter')), 'options' => DeviceParameter::all()->map(function ($device_parameter) {
                         return [ 'value' => $device_parameter->id, 'text' => $device_parameter->name ];
                     })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'value', 'label' => title_case(__('device_logs.value')) ],

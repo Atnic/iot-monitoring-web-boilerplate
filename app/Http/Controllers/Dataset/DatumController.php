@@ -74,7 +74,7 @@ class DatumController extends Controller
         return [
             'create' => [
                 'datum' => [
-                    'parameter' => [ 'field' => 'input', 'type' => 'text', 'name' => 'parameter_id', 'label' => title_case(__('data.parameter')), 'required' => true, 'options' => Parameter::all()->map(function ($parameter) {
+                    'parameter' => [ 'field' => 'select', 'name' => 'parameter_id', 'label' => title_case(__('data.parameter')), 'required' => true, 'options' => Parameter::all()->map(function ($parameter) {
                         return [ 'value' => $parameter->id, 'text' => $parameter->name ];
                     })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'value', 'label' => title_case(__('data.value')), 'required' => true ],
@@ -83,7 +83,7 @@ class DatumController extends Controller
             ],
             'edit' => [
                 'datum' => [
-                    'parameter' => [ 'field' => 'input', 'type' => 'text', 'name' => 'parameter_id', 'label' => title_case(__('data.parameter')), 'options' => Parameter::all()->map(function ($parameter) {
+                    'parameter' => [ 'field' => 'select', 'name' => 'parameter_id', 'label' => title_case(__('data.parameter')), 'options' => Parameter::all()->map(function ($parameter) {
                         return [ 'value' => $parameter->id, 'text' => $parameter->name ];
                     })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'value', 'label' => title_case(__('data.value')) ],

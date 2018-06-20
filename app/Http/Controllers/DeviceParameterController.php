@@ -41,7 +41,7 @@ class DeviceParameterController extends Controller
                 'device_parameter' => [
                     // [ 'name' => 'parent', 'label' => title_case(__('device_parameters.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
                     [ 'name' => 'code', 'label' => title_case(__('device_parameters.code')) ],
-                    [ 'name' => 'nama', 'label' => title_case(__('device_parameters.nama')) ],
+                    [ 'name' => 'name', 'label' => title_case(__('device_parameters.name')) ],
                     [ 'name' => 'unit', 'label' => title_case(__('device_parameters.unit')) ],
                 ]
             ],
@@ -70,8 +70,8 @@ class DeviceParameterController extends Controller
                     // [ 'field' => 'select', 'name' => 'parent_id', 'label' => title_case(__('bars.parent')), 'required' => true, 'options' => \App\Parent::filter()->get()->map(function ($parent) {
                     //     return [ 'value' => $parent->id, 'text' => $parent->name ];
                     // })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'code', 'label' => title_case(__('device_parameters.code')), 'required' => true ],
-                    [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('device_parameters.name')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'code', 'label' => title_case(__('device_parameters.code')) ],
+                    [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('device_parameters.name')), 'required' => true ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'unit', 'label' => title_case(__('device_parameters.unit')) ],
                 ]
             ],
