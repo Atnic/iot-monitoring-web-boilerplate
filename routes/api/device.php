@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('login', 'ApiDevice\Auth\LoginController@login')->name('api.device.login');
+Route::post('logout', 'ApiDevice\Auth\LoginController@logout')->name('api.device.logout');
+Route::post('register', 'ApiDevice\Auth\RegisterController@register')->name('api.device.register');
+
 Route::middleware('auth:api_device')->get('/device', function (Request $request) {
     return $request->user();
 });

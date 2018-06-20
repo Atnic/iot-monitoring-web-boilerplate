@@ -25,7 +25,7 @@ class DeviceObserver
      */
     public function creating(Device $device)
     {
-        //
+        $device->name = $device->name ? : $device->imei;
     }
 
     /**
