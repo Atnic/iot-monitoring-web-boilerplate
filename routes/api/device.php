@@ -19,3 +19,4 @@ Route::middleware('auth:device')->get('/device', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('device_logs', 'ApiDevice\DeviceLogController', [ 'as' => 'api.device' ]);
+Route::apiResource('data', 'ApiDevice\DatumController', [ 'as' => 'api.device' ]);

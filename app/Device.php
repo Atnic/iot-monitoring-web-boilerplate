@@ -77,4 +77,13 @@ class Device extends Authenticatable
     {
         return $this->belongsToOne(Dataset::class);
     }
+
+    /**
+     * Get data this model has
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function data()
+    {
+        return $this->hasManyThrough(Datum::class, DatasetDevice::class, null, (new Dataset)->getForeignKey(), null, (new Dataset)->getForeignKey());
+    }
 }
