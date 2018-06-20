@@ -16,6 +16,7 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->string('imei')->primary();
             $table->string('name');
+            $table->string('api_token', 60)->nullable()->unique();
             $table->timestamps();
         });
     }

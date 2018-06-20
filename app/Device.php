@@ -3,12 +3,12 @@
 namespace App;
 
 use Arados\Filters\Traits\Filterable;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Device Model
  */
-class Device extends Model
+class Device extends Authenticatable
 {
     use Filterable;
 
@@ -40,6 +40,24 @@ class Device extends Model
 
     /** @var string $connection */
     // protected $connection = '';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'imei', 'name',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'api_token',
+    ];
 
     /**
      * Get device_logs this model has

@@ -1,0 +1,25 @@
+<?php
+
+namespace DummyNamespace;
+
+use NamespacedDummyUserModel;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class DummyClass extends TestCase
+{
+    /**
+     * Invoke single action controller.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function test()
+    {
+        $device = factory(Device::class)->create();
+
+        $this->actingAs($device, 'api_device');
+        $response = $this->getJson(route('dummy_route'));
+        $response->assertSuccessful();
+    }
+}
