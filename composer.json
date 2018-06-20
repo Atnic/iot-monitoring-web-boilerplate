@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "atnic/iot-monitoring-web-boilerplate",
+    "description": "IoT Monitoring Web Boilerplate.",
+    "keywords": ["atnic", "iot", "framework", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
