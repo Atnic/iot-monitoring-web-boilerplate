@@ -9,5 +9,6 @@ return [
     'remark' => 'remark',
 
     // 'parent' => 'parent',
+    'device' => 'device',
     'data' => 'data'
 ];

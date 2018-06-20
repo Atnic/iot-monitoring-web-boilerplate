@@ -2,19 +2,19 @@
 
 namespace App;
 
-use App\Database\Eloquent\Concerns;
 use Arados\Filters\Traits\Filterable;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
- * Dataset Model
+ * DatasetDevice Pivot Model
+ * @extends Pivot
  */
-class Dataset extends Model
+class DatasetDevice extends Pivot
 {
-    use Filterable, Concerns\HasRelationships;
+    use Filterable;
 
     /** @var string Filter Class */
-    protected $filters = 'App\Filters\DatasetFilter';
+    protected $filters = 'App\Filters\DatasetDeviceFilter';
 
     /** @var string $table */
     // protected $table = '';
@@ -42,21 +42,5 @@ class Dataset extends Model
     /** @var string $connection */
     // protected $connection = '';
 
-    /**
-     * Get data this model has
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function data()
-    {
-        return $this->hasMany(Datum::class);
-    }
-
-    /**
-     * Get device this model belongs to
-     * @return \App\Database\Eloquent\Relations\BelongsToOne
-     */
-    public function device()
-    {
-        return $this->belongsToOne(Device::class);
-    }
+    // TODO: Define other default value and relations
 }

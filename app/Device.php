@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Database\Eloquent\Concerns;
 use Arados\Filters\Traits\Filterable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -10,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class Device extends Authenticatable
 {
-    use Filterable;
+    use Filterable, Concerns\HasRelationships;
 
     /** @var string Filter Class */
     protected $filters = 'App\Filters\DeviceFilter';
@@ -66,5 +67,14 @@ class Device extends Authenticatable
     public function device_logs()
     {
         return $this->hasMany(DeviceLog::class);
+    }
+
+    /**
+     * Get dataset this model belongs to
+     * @return \App\Database\Eloquent\Relations\BelongsToOne
+     */
+    public function dataset()
+    {
+        return $this->belongsToOne(Dataset::class);
     }
 }

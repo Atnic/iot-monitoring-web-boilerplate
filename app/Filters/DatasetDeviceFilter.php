@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Filters;
+
+use Atnic\LaravelGenerator\Filters\BaseFilter;
+
+/**
+ * DatasetDeviceFilter Filter
+ */
+class DatasetDeviceFilter extends BaseFilter
+{
+    /**
+     * Searchable Field
+     * @var array
+     */
+    protected $searchables = [ 'name' ]; // TODO: List all searchables field, support relation also, ex: [ 'name', 'posts' => [ 'title' ] ]
+
+    /**
+     * Sortables Field
+     * @var array
+     */
+    protected $sortables = [ 'id', 'name', 'created_at', 'updated_at' ]; // TODO: List all sortables field, support relation but belongsTo morhpTo hasOne morphOne only, ex: [ 'id', 'name', 'role.name' ]
+
+    /**
+     * Default Sort
+     * @var string|null
+     */
+    protected $default_sort = null; // TODO: Default sort, null if no default, ex: 'name,asc'
+
+    /**
+     * Default per page
+     * @var int|null
+     */
+    protected $default_per_page = null; // TODO: Default per page, null if use model per page default, ex: 20
+}

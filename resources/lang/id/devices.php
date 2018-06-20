@@ -9,5 +9,6 @@ return [
     'name' => 'nama',
 
     // 'parent' => 'parent',
+    'dataset' => 'dataset',
     'device_logs' => 'log alat'
 ];

@@ -9,5 +9,6 @@ return [
     'remark' => 'catatan',
 
     // 'parent' => 'parent',
+    'device' => 'alat',
     'data' => 'data'
 ];

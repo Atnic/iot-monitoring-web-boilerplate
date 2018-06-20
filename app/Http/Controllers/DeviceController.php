@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Device;
+use App\Dataset;
 use Illuminate\Http\Request;
 
 /**
@@ -42,6 +43,7 @@ class DeviceController extends Controller
                     // [ 'name' => 'parent', 'label' => title_case(__('devices.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
                     [ 'name' => 'imei', 'label' => title_case(__('devices.imei')) ],
                     [ 'name' => 'name', 'label' => title_case(__('devices.name')) ],
+                    [ 'name' => 'dataset', 'label' => title_case(__('devices.dataset')), 'column' => 'name' ],
                 ]
             ],
             'show' => [
@@ -49,6 +51,7 @@ class DeviceController extends Controller
                     // [ 'name' => 'parent', 'label' => title_case(__('devices.parent')), 'column' => 'name' ], // Only support belongsTo, hasOne
                     [ 'name' => 'imei', 'label' => title_case(__('devices.imei')) ],
                     [ 'name' => 'name', 'label' => title_case(__('devices.name')) ],
+                    [ 'name' => 'dataset', 'label' => title_case(__('devices.dataset')), 'column' => 'name' ],
                 ]
             ]
         ];
@@ -70,6 +73,9 @@ class DeviceController extends Controller
                     // })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                     [ 'field' => 'input', 'type' => 'number', 'name' => 'imei', 'label' => title_case(__('devices.imei')), 'required' => true ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('devices.name')), 'required' => true ],
+                    'dataset' => [ 'field' => 'select', 'name' => 'dataset[id]', 'label' => title_case(__('devices.dataset')), 'options' => Dataset::get()->map(function ($dataset) {
+                        return [ 'value' => $dataset->id, 'text' => $dataset->name ];
+                    })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                 ]
             ],
             'edit' => [
@@ -79,6 +85,9 @@ class DeviceController extends Controller
                     // })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                     [ 'field' => 'input', 'type' => 'number', 'name' => 'imei', 'label' => title_case(__('devices.imei')) ],
                     [ 'field' => 'input', 'type' => 'text', 'name' => 'name', 'label' => title_case(__('devices.name')) ],
+                    'dataset' => [ 'field' => 'select', 'name' => 'dataset[id]', 'label' => title_case(__('devices.dataset')), 'options' => Dataset::get()->map(function ($dataset) {
+                        return [ 'value' => $dataset->id, 'text' => $dataset->name ];
+                    })->prepend([ 'value' => '', 'text' => '-' ])->toArray() ],
                 ]
             ]
         ];
@@ -158,6 +167,10 @@ class DeviceController extends Controller
     {
         $this->authorize('create', 'App\Device');
         $request->validate(self::rules($request)['store']);
+        $request->validate([
+            'dataset' => 'array|nullable',
+            'dataset.id' => 'exists:datasets,id|unique:dataset_device,dataset_id|nullable'
+        ]);
 
         $device = new Device;
         foreach (self::rules($request)['store'] as $key => $value) {
@@ -172,6 +185,9 @@ class DeviceController extends Controller
             }
         }
         $device->save();
+        if ($request->exists('dataset')) {
+            $request->dataset && $request->dataset['id'] ? $device->dataset()->sync($request->dataset['id']) : $device->dataset()->detach();
+        }
 
         if (request()->filled('redirect') && starts_with(request()->redirect, request()->root()))
             $response = response()->redirectTo(request()->redirect);
@@ -225,6 +241,10 @@ class DeviceController extends Controller
     {
         $this->authorize('update', $device);
         $request->validate(self::rules($request, $device)['update']);
+        $request->validate([
+            'dataset' => 'array|nullable',
+            'dataset.id' => 'exists:datasets,id|unique:dataset_device,dataset_id,'.($device->dataset ? $device->dataset->getKey() : 'NULL').',dataset_id|nullable'
+        ]);
 
         foreach (self::rules($request, $device)['update'] as $key => $value) {
             if (str_contains($value, [ 'file', 'image', 'mimetypes', 'mimes' ])) {
@@ -238,6 +258,9 @@ class DeviceController extends Controller
             }
         }
         $device->save();
+        if ($request->exists('dataset')) {
+            $request->dataset && $request->dataset['id'] ? $device->dataset()->sync($request->dataset['id']) : $device->dataset()->detach();
+        }
 
         if (request()->filled('redirect') && starts_with(request()->redirect, request()->root()))
             $response = response()->redirectTo(request()->redirect);
